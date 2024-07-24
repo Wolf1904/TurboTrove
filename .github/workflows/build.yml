@@ -20,8 +20,13 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
+      - name: Create bin directory
+        run: mkdir -p bin
+  
       - name: Compile Java files
-        run: javac -d bin src/**/*.java
+        run: |
+          find src -name "*.java" > sources.txt
+          javac -d bin @sources.txt
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
