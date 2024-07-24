@@ -54,3 +54,6 @@ Note
 ----
 
 This is a basic implementation and may not include all the features and error handling that a real-world management system would require.
+
+
+[![Build](https://github.com/Wolf1904/tubotrove/actions/workflows/build.yml/badge.svg)](https://github.com/Wolf1904/tubotrove/actions/workflows/build.yml)
