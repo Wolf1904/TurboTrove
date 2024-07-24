@@ -57,3 +57,6 @@ This is a basic implementation and may not include all the features and error ha
 
 
 [![Build](https://github.com/Wolf1904/tubotrove/actions/workflows/build.yml/badge.svg)](https://github.com/Wolf1904/tubotrove/actions/workflows/build.yml)
+
+
+This badge represents the current code quality status as analyzed by SonarCloud. Click on the badge to view detailed analysis reports and metrics
