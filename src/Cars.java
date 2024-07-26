@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class Cars extends Showroom implements uitlity{
-    String car_name;
+    String carName;
     String car_color;
     String car_fuel_type;
     int car_price;
@@ -11,7 +11,7 @@ public class Cars extends Showroom implements uitlity{
 
     @Override
     public void get_details() {
-        System.out.println("NAME: "+car_name);
+        System.out.println("NAME: "+carName);
         System.out.println("COLOR: "+car_color);
         System.out.println("FUEL TYPE: "+car_fuel_type);
         System.out.println("PRICE: "+car_price);
@@ -26,7 +26,7 @@ public class Cars extends Showroom implements uitlity{
         System.out.println("======================= *** ENTER CAR DETAILS *** =======================");
         System.out.println();
         System.out.print("CAR NAME: ");
-        car_name = sc.nextLine();
+        carName = sc.nextLine();
         System.out.print(("CAR COLOR: "));
         car_color = sc.nextLine();
         System.out.print("CAR FUEL TYPE(PETROL/DIESEL/CNG/ELECTRIC): ");
