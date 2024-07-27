@@ -2,22 +2,22 @@ import java.util.Scanner;
 
 public class Cars extends Showroom implements uitlity{
     String carName;
-    String car_color;
-    String car_fuel_type;
-    int car_price;
-    String car_type;
-    String car_transmission;
-    int model_year;
+    String carColor;
+    String carFueltype;
+    int carPrice;
+    String carType;
+    String carTransmission;
+    int modelYear;
 
     @Override
     public void get_details() {
         System.out.println("NAME: "+carName);
-        System.out.println("COLOR: "+car_color);
-        System.out.println("FUEL TYPE: "+car_fuel_type);
-        System.out.println("PRICE: "+car_price);
-        System.out.println("TYPE: "+car_type);
-        System.out.println("TRANSMISSION: "+car_transmission);
-        System.out.println("MODEL YEAR: "+model_year);
+        System.out.println("COLOR: "+carColor);
+        System.out.println("FUEL TYPE: "+carFueltype);
+        System.out.println("PRICE: "+carPrice);
+        System.out.println("TYPE: "+carType);
+        System.out.println("TRANSMISSION: "+carTransmission);
+        System.out.println("MODEL YEAR: "+modelYear);
     }
     
     @Override
@@ -28,19 +28,19 @@ public class Cars extends Showroom implements uitlity{
         System.out.print("CAR NAME: ");
         carName = sc.nextLine();
         System.out.print(("CAR COLOR: "));
-        car_color = sc.nextLine();
+        carColor = sc.nextLine();
         System.out.print("CAR FUEL TYPE(PETROL/DIESEL/CNG/ELECTRIC): ");
-        car_fuel_type = sc.nextLine();
+        carFueltype = sc.nextLine();
         System.out.print("CAR PRICE: ");
-        car_price = sc.nextInt();
+        carPrice = sc.nextInt();
         sc.nextLine();
         System.out.print("CAR TYPE(SEDAN/SUV/HATCHBACK): ");
-        car_type = sc.nextLine();
+        carType = sc.nextLine();
         System.out.print("TRANSMISSION TYPE(AUTOMATIC/MANUAL): ");
-        car_transmission = sc.nextLine();
+        carTransmission = sc.nextLine();
         System.out.print("MODEL YEAR: ");
-        model_year = sc.nextInt();
-        total_cars_in_stock++;
+        modelYear = sc.nextInt();
+        totalCarsinStock++;
     }
 
 }
