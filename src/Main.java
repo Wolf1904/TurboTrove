@@ -7,7 +7,7 @@ interface uitlity{
 
 public class Main {
     
-    static void main_menu(){
+    static void mainMenu(){
         System.out.println();
         System.out.println("======================= *** WELCOME TO TURBOTROVE *** =======================");
         System.out.println();
@@ -35,7 +35,7 @@ public static void main(String[] args) {
         int choice = 100;
         while(choice!=0){
 
-            main_menu();
+            mainMenu();
             choice = sc.nextInt();
 
             while(choice!=9 && choice!=0){
