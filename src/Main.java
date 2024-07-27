@@ -29,9 +29,9 @@ public static void main(String[] args) {
         Showroom showroom[] = new Showroom[5];
         Employees employee[] = new Employees[5];
         Cars car[] = new Cars[5];
-        int car_counter = 0;
-        int showroom_counter = 0;
-        int employees_counter = 0;
+        int carCounter = 0;
+        int showroomCounter = 0;
+        int employeesCounter = 0;
         int choice = 100;
         while(choice!=0){
 
@@ -41,34 +41,34 @@ public static void main(String[] args) {
             while(choice!=9 && choice!=0){
                 switch (choice) {
                     case 1:
-                        showroom[showroom_counter] = new Showroom();
-                        showroom[showroom_counter].set_details();
-                        showroom_counter++;
+                        showroom[showroomCounter] = new Showroom();
+                        showroom[showroomCounter].set_details();
+                        showroomCounter++;
                         System.out.println();
                         System.out.println("[1].ADD NEW SHOWROOM");
                         System.out.println("[9].GO BACK TO MAIN MENU");
                         choice = sc.nextInt();
                         break;
                     case 2:
-                        employee[employees_counter] = new Employees();
-                        employee[employees_counter].set_details();
-                        employees_counter++;
+                        employee[employeesCounter] = new Employees();
+                        employee[employeesCounter].set_details();
+                        employeesCounter++;
                         System.out.println();
                         System.out.println("[2].ADD NEW EMPLOYEE");
                         System.out.println("[9].GO BACK TO MAIN MENU");
                         choice = sc.nextInt();
                         break;
                     case 3:
-                        car[car_counter] = new Cars();
-                        car[car_counter].set_details();
-                        car_counter++;
+                        car[carCounter] = new Cars();
+                        car[carCounter].set_details();
+                        carCounter++;
                         System.out.println();
                         System.out.println("[3].ADD NEW CAR");
                         System.out.println("[9].GO BACK TO MAIN MENU");
                         choice = sc.nextInt();
                         break;
                     case 4:
-                        for (int i = 0; i < showroom_counter; i++) {
+                        for (int i = 0; i < showroomCounter; i++) {
                             showroom[i].get_details();
                             System.out.println();
                             System.out.println();
@@ -79,7 +79,7 @@ public static void main(String[] args) {
                         choice = sc.nextInt();
                         break;
                     case 5:
-                        for (int i = 0; i < employees_counter; i++) {
+                        for (int i = 0; i < employeesCounter; i++) {
                             employee[i].get_details();
                             System.out.println();
                             System.out.println();
@@ -90,7 +90,7 @@ public static void main(String[] args) {
                         choice = sc.nextInt();
                         break;
                     case 6:
-                        for (int i = 0; i < car_counter; i++) {
+                        for (int i = 0; i < carCounter; i++) {
                             car[i].get_details();
                             System.out.println();
                             System.out.println();
