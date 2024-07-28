@@ -1,39 +1,105 @@
 import java.util.Scanner;
+import java.util.logging.Logger;
+import java.util.logging.Level;
+import java.util.logging.ConsoleHandler;
+import java.util.logging.SimpleFormatter;
 
-public class Showroom implements uitlity{
+public class Showroom implements Utility {
+    private static final Logger logger = Logger.getLogger(Showroom.class.getName());
+
+    static {
+        ConsoleHandler handler = new ConsoleHandler();
+        handler.setLevel(Level.WARNING); // Change this to Level.WARNING to suppress INFO logs
+        handler.setFormatter(new SimpleFormatter()); // Use a simple formatter or customize as needed
+        logger.addHandler(handler);
+        logger.setUseParentHandlers(false); // Disable the default console handler
+    }
+    
     String showroomName;
     String showroomAddress;
     String managerName;
     int totalEmployees;
-    int totalCarsinStock=0;
+    int totalCarsinStock = 0;
     int managerPhone;
 
     @Override
-    public void get_details(){
-        System.out.println("Showroom Name: "+showroomName);
-        System.out.println("Showroom Address: "+showroomAddress);
-        System.out.println("Manager Name: "+managerName);
-        System.out.println("Total Employees: "+totalEmployees);
-        System.out.println("Total Cars in Stock: "+totalCarsinStock);
-        System.out.println("Manager Phone: "+managerPhone);
+    public void get_details() {
+        logger.log(Level.INFO, "Showroom Name: {0}", showroomName);
+        logger.log(Level.INFO, "Showroom Address: {0}", showroomAddress);
+        logger.log(Level.INFO, "Manager Name: {0}", managerName);
+        logger.log(Level.INFO, "Total Employees: {0}", totalEmployees);
+        logger.log(Level.INFO, "Total Cars in Stock: {0}", totalCarsinStock);
+        logger.log(Level.INFO, "Manager Phone: {0}", managerPhone);
     }
 
     @Override
-    public void set_details(){
-        Scanner sc=new Scanner(System.in);
-        System.out.println("======================= *** ENTER SHOWROOM DETAILS *** =======================");
-        System.out.println();
-        System.out.print("SHOWROOM NAME: ");
+    public void set_details() {
+        Scanner sc = new Scanner(System.in);
+        logger.log(Level.INFO, "======================= *** ENTER SHOWROOM DETAILS *** =======================");
+        logger.log(Level.INFO, "");
+        logger.log(Level.INFO, "SHOWROOM NAME: ");
         showroomName = sc.nextLine();
-        System.out.print(("SHOWROOM ADDRESS: "));
+        logger.log(Level.INFO, "SHOWROOM ADDRESS: ");
         showroomAddress = sc.nextLine();
-        System.out.print("MANAGER NAME: ");
+        logger.log(Level.INFO, "MANAGER NAME: ");
         managerName = sc.nextLine();
-        System.out.print("TOTAL NO OF EMPLOYEES: ");
+        logger.log(Level.INFO, "TOTAL NO OF EMPLOYEES: ");
         totalEmployees = sc.nextInt();
-        System.out.print("TOTAL CARS IN STOCK: ");
+        logger.log(Level.INFO, "TOTAL CARS IN STOCK: ");
         totalCarsinStock = sc.nextInt();
-        System.out.print("MANAGER PHONE: ");
+        logger.log(Level.INFO, "MANAGER PHONE: ");
         managerPhone = sc.nextInt();
+    }
+
+    public static Logger getLogger() {
+        return logger;
+    }
+
+    public String getShowroomName() {
+        return showroomName;
+    }
+
+    public void setShowroomName(String showroomName) {
+        this.showroomName = showroomName;
+    }
+
+    public String getShowroomAddress() {
+        return showroomAddress;
+    }
+
+    public void setShowroomAddress(String showroomAddress) {
+        this.showroomAddress = showroomAddress;
+    }
+
+    public String getManagerName() {
+        return managerName;
+    }
+
+    public void setManagerName(String managerName) {
+        this.managerName = managerName;
+    }
+
+    public int getTotalEmployees() {
+        return totalEmployees;
+    }
+
+    public void setTotalEmployees(int totalEmployees) {
+        this.totalEmployees = totalEmployees;
+    }
+
+    public int getTotalCarsinStock() {
+        return totalCarsinStock;
+    }
+
+    public void setTotalCarsinStock(int totalCarsinStock) {
+        this.totalCarsinStock = totalCarsinStock;
+    }
+
+    public int getManagerPhone() {
+        return managerPhone;
+    }
+
+    public void setManagerPhone(int managerPhone) {
+        this.managerPhone = managerPhone;
     }
 }

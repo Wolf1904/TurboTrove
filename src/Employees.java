@@ -1,37 +1,50 @@
 import java.util.Scanner;
 import java.util.UUID;
+import java.util.logging.Logger;
+import java.util.logging.Level;
+import java.util.logging.ConsoleHandler;
+import java.util.logging.SimpleFormatter;
 
-public class Employees extends Showroom implements uitlity{
+public class Employees extends Showroom implements Utility {
+    private static final Logger logger = Logger.getLogger(Employees.class.getName());
+
+    static {
+        ConsoleHandler handler = new ConsoleHandler();
+        handler.setLevel(Level.WARNING);
+        handler.setFormatter(new SimpleFormatter());
+        logger.addHandler(handler);
+        logger.setUseParentHandlers(false);
+    }
+    
     String empId;
     String empName;
     int empAge;
     String empDepartment;
 
-
     @Override
     public void get_details() {
-        System.out.println("ID: "+empId);
-        System.out.println("Name: "+empName);
-        System.out.println("Age: "+empAge);
-        System.out.println("Department: "+empDepartment);
-        System.out.println("Showroom Name: "+showroomName);
-
+        logger.log(Level.INFO, "ID: {0}", empId);
+        logger.log(Level.INFO, "Name: {0}", empName);
+        logger.log(Level.INFO, "Age: {0}", empAge);
+        logger.log(Level.INFO, "Department: {0}", empDepartment);
+        logger.log(Level.INFO, "Showroom Name: {0}", showroomName);
     }
+
     @Override
-    public void set_details(){
+    public void set_details() {
         Scanner sc = new Scanner(System.in);
         UUID uuid = UUID.randomUUID();
         empId = String.valueOf(uuid);
-        System.out.println("======================= *** ENTER EMPLOYEE DETAILS *** =======================");
-        System.out.println();
-        System.out.print("EMPLOYEE NAME: ");
+        logger.log(Level.INFO, "======================= *** ENTER EMPLOYEE DETAILS *** =======================");
+        logger.log(Level.INFO, "");
+        logger.log(Level.INFO, "EMPLOYEE NAME: ");
         empName = sc.nextLine();
-        System.out.print(("EMPLOYEE AGE: "));
+        logger.log(Level.INFO, "EMPLOYEE AGE: ");
         empAge = sc.nextInt();
         sc.nextLine();
-        System.out.print("EMPLOYEE DEPARTMENT: ");
+        logger.log(Level.INFO, "EMPLOYEE DEPARTMENT: ");
         empDepartment = sc.nextLine();
-        System.out.print("SHOWROOM NAME: ");
+        logger.log(Level.INFO, "SHOWROOM NAME: ");
         showroomName = sc.nextLine();
     }
 }
