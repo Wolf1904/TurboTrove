@@ -4,6 +4,8 @@ import java.util.logging.Level;
 
 public class Main {
     private static final Logger logger = Logger.getLogger(Main.class.getName());
+    private static final String BACK_TO_MAIN_MENU = "[9].GO BACK TO MAIN MENU";
+    private static final String EXIT = "[0].EXIT";
 
     
     static void mainMenu() {
@@ -46,7 +48,7 @@ public class Main {
                         showroomCounter++;
                         logger.info("");
                         logger.info("[1].ADD NEW SHOWROOM");
-                        logger.info("[9].GO BACK TO MAIN MENU");
+                        logger.info(BACK_TO_MAIN_MENU);
                         choice = sc.nextInt();
                         break;
                     case 2:
@@ -55,7 +57,7 @@ public class Main {
                         employeesCounter++;
                         logger.info("");
                         logger.info("[2].ADD NEW EMPLOYEE");
-                        logger.info("[9].GO BACK TO MAIN MENU");
+                        logger.info(BACK_TO_MAIN_MENU);
                         choice = sc.nextInt();
                         break;
                     case 3:
@@ -64,7 +66,7 @@ public class Main {
                         carCounter++;
                         logger.info("");
                         logger.info("[3].ADD NEW CAR");
-                        logger.info("[9].GO BACK TO MAIN MENU");
+                        logger.info(BACK_TO_MAIN_MENU);
                         choice = sc.nextInt();
                         break;
                     case 4:
@@ -74,8 +76,8 @@ public class Main {
                             logger.info("");
                         }
                         logger.info("");
-                        logger.info("[9].GO BACK TO MAIN MENU");
-                        logger.info("[0].EXIT");
+                        logger.info(BACK_TO_MAIN_MENU);
+                        logger.info(EXIT);
                         choice = sc.nextInt();
                         break;
                     case 5:
@@ -85,8 +87,8 @@ public class Main {
                             logger.info("");
                         }
                         logger.info("");
-                        logger.info("[9].GO BACK TO MAIN MENU");
-                        logger.info("[0].EXIT");
+                        logger.info(BACK_TO_MAIN_MENU);
+                        logger.info(EXIT);
                         choice = sc.nextInt();
                         break;
                     case 6:
@@ -96,8 +98,8 @@ public class Main {
                             logger.info("");
                         }
                         logger.info("");
-                        logger.info("[9].GO BACK TO MAIN MENU");
-                        logger.info("[0].EXIT");
+                        logger.info(BACK_TO_MAIN_MENU);
+                        logger.info(EXIT);
                         choice = sc.nextInt();
                         break;
                     default:
