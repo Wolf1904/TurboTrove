@@ -1,19 +1,10 @@
 import java.util.Scanner;
 import java.util.logging.Logger;
 import java.util.logging.Level;
-import java.util.logging.ConsoleHandler;
-import java.util.logging.SimpleFormatter;
 
 public class Showroom implements Utility {
     private static final Logger logger = Logger.getLogger(Showroom.class.getName());
 
-    static {
-        ConsoleHandler handler = new ConsoleHandler();
-        handler.setLevel(Level.WARNING); // Change this to Level.WARNING to suppress INFO logs
-        handler.setFormatter(new SimpleFormatter()); // Use a simple formatter or customize as needed
-        logger.addHandler(handler);
-        logger.setUseParentHandlers(false); // Disable the default console handler
-    }
     
     String showroomName;
     String showroomAddress;

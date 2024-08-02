@@ -1,20 +1,10 @@
 import java.util.Scanner;
 import java.util.logging.Logger;
 import java.util.logging.Level;
-import java.util.logging.ConsoleHandler;
-import java.util.logging.SimpleFormatter;
 
 public class Cars extends Showroom implements Utility {
     private static final Logger logger = Logger.getLogger(Cars.class.getName());
 
-    static {
-        ConsoleHandler handler = new ConsoleHandler();
-        handler.setLevel(Level.WARNING);
-        handler.setFormatter(new SimpleFormatter());
-        logger.addHandler(handler);
-        logger.setUseParentHandlers(false);
-    }
-    
     String carName;
     String carColor;
     String carFueltype;
