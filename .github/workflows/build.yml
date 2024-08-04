@@ -23,11 +23,12 @@ jobs:
         distribution: 'temurin'
         java-version: '17'
 
-    - name: Download JUnit and Hamcrest
+    - name: Download JUnit, Hamcrest, and JaCoCo
       run: |
         mkdir -p lib
         curl -L -o lib/junit-4.13.2.jar https://search.maven.org/remotecontent?filepath=junit/junit/4.13.2/junit-4.13.2.jar
         curl -L -o lib/hamcrest-core-1.3.jar https://search.maven.org/remotecontent?filepath=org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar
+        curl -L -o lib/jacocoagent.jar https://repo1.maven.org/maven2/org/jacoco/org.jacoco.agent/0.8.12/org.jacoco.agent-0.8.12-runtime.jar
 
     - name: Create bin directory
       run: mkdir -p bin
@@ -36,9 +37,11 @@ jobs:
       run: |
         javac -cp lib/junit-4.13.2.jar:lib/hamcrest-core-1.3.jar -d bin $(find src -name "*.java")
 
-    - name: Run Tests
+    - name: Run Tests with JaCoCo
       run: |
-        java -cp lib/junit-4.13.2.jar:lib/hamcrest-core-1.3.jar:bin org.junit.runner.JUnitCore MainTest
+        java -javaagent:lib/jacocoagent.jar -cp lib/junit-4.13.2.jar:lib/hamcrest-core-1.3.jar:bin org.junit.runner.JUnitCore MainTest
+        mkdir -p target
+        mv jacoco.exec target/jacoco.exec
 
     - name: SonarCloud Scan
       uses: SonarSource/sonarcloud-github-action@master
@@ -50,3 +53,6 @@ jobs:
           -Dsonar.projectKey=Wolf1904_tubotrove
           -Dsonar.organization=wolf1904
           -Dsonar.host.url=https://sonarcloud.io
+          -Dsonar.java.libraries=lib/*.jar
+          -Dsonar.junit.reportPaths=target/test-classes
+          -Dsonar.jacoco.reportPaths=target/jacoco.exec
