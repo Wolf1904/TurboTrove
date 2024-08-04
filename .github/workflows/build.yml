@@ -28,8 +28,8 @@ jobs:
         mkdir -p lib
         curl -L -o lib/junit-4.13.2.jar https://search.maven.org/remotecontent?filepath=junit/junit/4.13.2/junit-4.13.2.jar
         curl -L -o lib/hamcrest-core-1.3.jar https://search.maven.org/remotecontent?filepath=org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar
-        curl -L -o lib/jacocoagent.jar https://repo1.maven.org/maven2/org/jacoco/org.jacoco.agent/0.8.12
-        curl -L -o lib/jacoco-cli.jar https://repo1.maven.org/maven2/org/jacoco/org.jacoco.cli/0.8.12
+        curl -L -o lib/org.jacoco.agent-0.8.12.jar https://repo1.maven.org/maven2/org/jacoco/org.jacoco.agent/0.8.12
+        curl -L -o lib/org.jacoco.cli-0.8.12.jar https://repo1.maven.org/maven2/org/jacoco/org.jacoco.cli/0.8.12
 
     - name: Create bin directory
       run: mkdir -p bin
