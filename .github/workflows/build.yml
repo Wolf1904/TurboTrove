@@ -38,3 +38,8 @@ jobs:
             -Dsonar.projectKey=Wolf1904_tubotrove
             -Dsonar.organization=wolf1904
             -Dsonar.host.url=https://sonarcloud.io
+
+      - name: Run Tests
+        run: |
+            java -cp lib/junit-4.13.2.jar:lib/hamcrest-core-1.3.jar:bin org.junit.runner.JUnitCore MainTest
+    
