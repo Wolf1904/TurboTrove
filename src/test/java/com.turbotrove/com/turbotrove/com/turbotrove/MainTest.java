@@ -1,4 +1,9 @@
+package com.turbotrove;
+
 import org.junit.Test;
+
+import com.turbotrove.Main;
+
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.logging.Logger;

@@ -1,3 +1,4 @@
+package com.turbotrove;
 import java.util.Scanner;
 import java.util.UUID;
 import java.util.logging.Logger;
