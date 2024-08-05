@@ -15,8 +15,12 @@ public class MainTest {
     @Test
     public void testUtilityMethods() {
         // Placeholder for testing Utility methods
-        Utility utility = new Utility();
-        // Add specific method calls and checks here
+        // Since Utility is abstract, we won't instantiate it directly.
+        // Instead, we can call static methods directly if there are any,
+        // or test a concrete subclass if one exists.
+        
+        // Example: if Utility has a static method called `someStaticMethod`
+        // Utility.someStaticMethod();
     }
 
     @Test
