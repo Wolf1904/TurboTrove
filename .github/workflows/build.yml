@@ -33,8 +33,8 @@ jobs:
           curl -L -o lib/org.jacoco.core-0.8.12.jar https://repo1.maven.org/maven2/org/jacoco/org.jacoco.core/0.8.12/org.jacoco.core-0.8.12.jar
           curl -L -o lib/org.jacoco.report-0.8.12.jar https://repo1.maven.org/maven2/org/jacoco/org.jacoco.report/0.8.12/org.jacoco.report-0.8.12.jar
           curl -L -o lib/args4j-2.33.jar https://repo1.maven.org/maven2/args4j/args4j/2.33/args4j-2.33.jar
-          curl -L -o lib/asm-3.3.1.jar https://repo1.maven.org/maven2/asm/asm/3.3.1/asm-3.3.1.jar
-          curl -L -o lib/asm-commons-3.3.1.jar https://repo1.maven.org/maven2/asm/asm-commons/3.3.1/asm-commons-3.3.1.jar
+          curl -L -o lib/asm-9.4.jar https://repo1.maven.org/maven2/org/ow2/asm/asm/9.4/asm-9.4.jar
+          curl -L -o lib/asm-commons-9.4.jar https://repo1.maven.org/maven2/org/ow2/asm/asm-commons/9.4/asm-commons-9.4.jar
 
       - name: Verify Downloaded JARs
         run: |
