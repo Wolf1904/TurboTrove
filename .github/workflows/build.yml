@@ -58,7 +58,7 @@ jobs:
 
       - name: Run Tests with JaCoCo
         run: |
-          java -javaagent:lib/org.jacoco.agent-0.8.12-runtime.jar=destfile=target/jacoco.exec -cp lib/junit-4.13.2.jar:lib/hamcrest-core-1.3.jar:bin org.junit.runner.JUnitCore MainTest
+          java -javaagent:lib/org.jacoco.agent-0.8.12-runtime.jar=destfile=target/jacoco.exec -cp lib/junit-4.13.2.jar:lib/hamcrest-core-1.3.jar:bin org.junit.runner.JUnitCore com.turbotrove.MainTest
         continue-on-error: true
 
       - name: Debug JaCoCo Execution Data
