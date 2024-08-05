@@ -33,6 +33,8 @@ jobs:
           curl -L -o lib/org.jacoco.core-0.8.12.jar https://repo1.maven.org/maven2/org/jacoco/org.jacoco.core/0.8.12/org.jacoco.core-0.8.12.jar
           curl -L -o lib/org.jacoco.report-0.8.12.jar https://repo1.maven.org/maven2/org/jacoco/org.jacoco.report/0.8.12/org.jacoco.report-0.8.12.jar
           curl -L -o lib/args4j-2.33.jar https://repo1.maven.org/maven2/args4j/args4j/2.33/args4j-2.33.jar
+          curl -L -o lib/asm-3.3.1.jar https://repo1.maven.org/maven2/asm/asm/3.3.1/asm-3.3.1.jar
+          curl -L -o lib/asm-commons-3.3.1.jar https://repo1.maven.org/maven2/asm/asm-commons/3.3.1/asm-commons-3.3.1.jar
 
       - name: Verify Downloaded JARs
         run: |
@@ -71,7 +73,7 @@ jobs:
 
       - name: Generate JaCoCo Report
         run: |
-          java -cp lib/org.jacoco.cli-0.8.12.jar:lib/org.jacoco.core-0.8.12.jar:lib/org.jacoco.report-0.8.12.jar:lib/args4j-2.33.jar:bin org.jacoco.cli.internal.Main report target/jacoco.exec --classfiles bin --sourcefiles src --html target/jacoco-html --xml target/jacoco.xml --csv target/jacoco.csv
+          java -cp lib/org.jacoco.cli-0.8.12.jar:lib/org.jacoco.core-0.8.12.jar:lib/org.jacoco.report-0.8.12.jar:lib/args4j-2.33.jar:lib/asm-9.4.jar:lib/asm-commons-9.4.jar:bin org.jacoco.cli.internal.Main report target/jacoco.exec --classfiles bin --sourcefiles src --html target/jacoco-html --xml target/jacoco.xml --csv target/jacoco.csv
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
