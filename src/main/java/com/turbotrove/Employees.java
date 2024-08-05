@@ -7,19 +7,22 @@ import java.util.logging.Level;
 public class Employees extends Showroom implements Utility {
     private static final Logger logger = Logger.getLogger(Employees.class.getName());
 
-    
     String empId;
     String empName;
     int empAge;
     String empDepartment;
 
-    @Override
-    public void get_details() {
-        logger.log(Level.INFO, "ID: {0}", empId);
-        logger.log(Level.INFO, "Name: {0}", empName);
-        logger.log(Level.INFO, "Age: {0}", empAge);
-        logger.log(Level.INFO, "Department: {0}", empDepartment);
-        logger.log(Level.INFO, "Showroom Name: {0}", showroomName);
+    // Getter methods
+    public String getEmpName() {
+        return empName;
+    }
+
+    public int getEmpAge() {
+        return empAge;
+    }
+
+    public String getEmpDepartment() {
+        return empDepartment;
     }
 
     @Override

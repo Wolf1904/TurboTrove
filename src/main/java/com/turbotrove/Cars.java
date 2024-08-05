@@ -14,17 +14,36 @@ public class Cars extends Showroom implements Utility {
     String carTransmission;
     int modelYear;
 
-    @Override
-    public void get_details() {
-        logger.log(Level.INFO, "NAME: {0}", carName);
-        logger.log(Level.INFO, "COLOR: {0}", carColor);
-        logger.log(Level.INFO, "FUEL TYPE: {0}", carFueltype);
-        logger.log(Level.INFO, "PRICE: {0}", carPrice);
-        logger.log(Level.INFO, "TYPE: {0}", carType);
-        logger.log(Level.INFO, "TRANSMISSION: {0}", carTransmission);
-        logger.log(Level.INFO, "MODEL YEAR: {0}", modelYear);
+    // Getter methods
+    public String getCarName() {
+        return carName;
     }
-    
+
+    public String getCarColor() {
+        return carColor;
+    }
+
+    public String getCarFueltype() {
+        return carFueltype;
+    }
+
+    public int getCarPrice() {
+        return carPrice;
+    }
+
+    public String getCarType() {
+        return carType;
+    }
+
+    public String getCarTransmission() {
+        return carTransmission;
+    }
+
+    public int getModelYear() {
+        return modelYear;
+    }
+
+    // Setter methods
     @Override
     public void set_details() {
         Scanner sc = new Scanner(System.in);
