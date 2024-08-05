@@ -70,10 +70,14 @@ public class MainTest {
 
     @Test
     public void testMainMenu() {
-        // Test to simulate the main menu interaction
-        String input = "1\n9\n"; // Simulates adding showroom and then going back to menu
+        // Simulates interacting with the menu
+        String input = "1\nShowroom A\n123 Main St\nJohn Doe\n10\n50\n123456789\n" + // Add showroom details
+                       "2\nJohn Doe\n30\nSales\nShowroom A\n" + // Add employee details
+                       "3\nCar1\nRed\nPetrol\n20000\nSUV\nAutomatic\n2021\n" + // Add car details
+                       "9\n"; // Go back to menu
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
         app.run(); // Call the run method for testing
     }
+
 }
