@@ -1,6 +1,8 @@
 package com.turbotrove;
 
 import org.junit.Test;
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 
 import com.turbotrove.*;
 
@@ -8,8 +10,15 @@ public class MainTest {
 
     @Test
     public void testMain() {
-        // Placeholder test for the main method
-        Main.main(new String[]{});
+        // Simulate user input
+        String simulatedInput = "0\n";
+        InputStream stdin = System.in;
+        try {
+            System.setIn(new ByteArrayInputStream(simulatedInput.getBytes()));
+            Main.main(new String[]{});
+        } finally {
+            System.setIn(stdin);
+        }
     }
 
     @Test
