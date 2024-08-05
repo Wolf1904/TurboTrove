@@ -1,24 +1,32 @@
 import org.junit.Test;
-import java.util.logging.Logger;
-import java.util.logging.Level;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+
 import static org.junit.Assert.*;
 
 public class MainTest {
     @Test
     public void testMainMenu() {
-        Logger logger = Logger.getLogger(Main.class.getName());
+        // Redirect System.out to capture the output
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-        PrintStream originalOut = System.out;
         System.setOut(new PrintStream(outContent));
 
+        // Call the method to be tested
         Main.mainMenu();
 
-        // Example assertion to check if certain output is present
-        assertTrue(outContent.toString().contains("WELCOME TO TURBOTROVE"));
+        // Expected output
+        String expectedOutput = "1. ADD SHOWROOMS\n" +
+                                "2. ADD EMPLOYEES\n" +
+                                "3. ADD CARS\n" +
+                                "4. GET SHOWROOMS\n" +
+                                "5. GET EMPLOYEES\n" +
+                                "6. GET CARS\n" +
+                                "0. EXIT\n";
 
-        // Restore the original System.out
-        System.setOut(originalOut);
+        // Check if the actual output matches the expected output
+        assertEquals(expectedOutput, outContent.toString());
+
+        // Reset System.out
+        System.setOut(System.out);
     }
 }
