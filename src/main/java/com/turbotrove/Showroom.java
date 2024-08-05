@@ -1,3 +1,4 @@
+// Showroom.java
 package com.turbotrove;
 import java.util.Scanner;
 import java.util.logging.Logger;
@@ -6,13 +7,12 @@ import java.util.logging.Level;
 public class Showroom implements Utility {
     private static final Logger logger = Logger.getLogger(Showroom.class.getName());
 
-    
-    String showroomName;
-    String showroomAddress;
-    String managerName;
-    int totalEmployees;
-    int totalCarsinStock = 0;
-    int managerPhone;
+    protected String showroomName;
+    private String showroomAddress;
+    private String managerName;
+    private int totalEmployees;
+    public int totalCarsinStock = 0;
+    private int managerPhone;
 
     @Override
     public void get_details() {
@@ -30,17 +30,17 @@ public class Showroom implements Utility {
         logger.log(Level.INFO, "======================= *** ENTER SHOWROOM DETAILS *** =======================");
         logger.log(Level.INFO, "");
         logger.log(Level.INFO, "SHOWROOM NAME: ");
-        showroomName = sc.nextLine();
+        setShowroomName(sc.nextLine());
         logger.log(Level.INFO, "SHOWROOM ADDRESS: ");
-        showroomAddress = sc.nextLine();
+        setShowroomAddress(sc.nextLine());
         logger.log(Level.INFO, "MANAGER NAME: ");
-        managerName = sc.nextLine();
+        setManagerName(sc.nextLine());
         logger.log(Level.INFO, "TOTAL NO OF EMPLOYEES: ");
-        totalEmployees = sc.nextInt();
+        setTotalEmployees(sc.nextInt());
         logger.log(Level.INFO, "TOTAL CARS IN STOCK: ");
-        totalCarsinStock = sc.nextInt();
+        setTotalCarsinStock(sc.nextInt());
         logger.log(Level.INFO, "MANAGER PHONE: ");
-        managerPhone = sc.nextInt();
+        setManagerPhone(sc.nextInt());
     }
 
     public static Logger getLogger() {

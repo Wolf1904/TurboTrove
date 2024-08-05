@@ -1,4 +1,5 @@
 package com.turbotrove;
+
 import java.util.Scanner;
 import java.util.logging.Logger;
 import java.util.logging.Level;
@@ -8,7 +9,13 @@ public class Main {
     private static final String BACK_TO_MAIN_MENU = "[9].GO BACK TO MAIN MENU";
     private static final String EXIT = "[0].EXIT";
 
-    
+    private static Showroom[] showroom = new Showroom[5];
+    private static Employees[] employee = new Employees[5];
+    private static Cars[] car = new Cars[5];
+    private static int carCounter = 0;
+    private static int showroomCounter = 0;
+    private static int employeesCounter = 0;
+
     static void mainMenu() {
         logger.info("");
         logger.info("======================= *** WELCOME TO TURBOTROVE *** =======================");
@@ -29,18 +36,12 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Showroom[] showroom = new Showroom[5];
-        Employees[] employee = new Employees[5];
-        Cars[] car = new Cars[5];
-        int carCounter = 0;
-        int showroomCounter = 0;
-        int employeesCounter = 0;
         int choice = 100;
-        
+
         while (choice != 0) {
             mainMenu();
             choice = sc.nextInt();
-            
+
             while (choice != 9 && choice != 0) {
                 switch (choice) {
                     case 1:
@@ -110,5 +111,29 @@ public class Main {
             }
         }
         sc.close();
+    }
+
+    public static Showroom[] getShowroomArray() {
+        return showroom;
+    }
+
+    public static Employees[] getEmployeeArray() {
+        return employee;
+    }
+
+    public static Cars[] getCarArray() {
+        return car;
+    }
+
+    public static int getCarCounter() {
+        return carCounter;
+    }
+
+    public static int getShowroomCounter() {
+        return showroomCounter;
+    }
+
+    public static int getEmployeesCounter() {
+        return employeesCounter;
     }
 }
