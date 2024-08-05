@@ -1,6 +1,5 @@
 package com.turbotrove;
 
-import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 import java.io.ByteArrayInputStream;
@@ -11,12 +10,14 @@ public class MainTest {
     private Showroom showroom;
     private Cars car;
     private Employees employee;
+    private Main app;
 
     @Before
     public void setUp() {
         showroom = new Showroom();
         car = new Cars();
         employee = new Employees();
+        app = new Main();
     }
 
     @Test
@@ -26,7 +27,7 @@ public class MainTest {
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
         showroom.set_details();
-        // Remove assertions if necessary
+        // Output values for verification
         System.out.println("Showroom Name: " + showroom.getShowroomName());
         System.out.println("Showroom Address: " + showroom.getShowroomAddress());
         System.out.println("Manager Name: " + showroom.getManagerName());
@@ -42,7 +43,7 @@ public class MainTest {
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
         car.set_details();
-        // Remove assertions if necessary
+        // Output values for verification
         System.out.println("Car Name: " + car.getCarName());
         System.out.println("Car Color: " + car.getCarColor());
         System.out.println("Car Fuel Type: " + car.getCarFueltype());
@@ -60,10 +61,19 @@ public class MainTest {
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
         employee.set_details();
-        // Remove assertions if necessary
+        // Output values for verification
         System.out.println("Employee Name: " + employee.getEmpName());
         System.out.println("Employee Age: " + employee.getEmpAge());
         System.out.println("Employee Department: " + employee.getEmpDepartment());
         System.out.println("Showroom Name: " + employee.getShowroomName());
+    }
+
+    @Test
+    public void testMainMenu() {
+        // Test to simulate the main menu interaction
+        String input = "1\n9\n"; // Simulates adding showroom and then going back to menu
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+        app.run(); // Call the run method for testing
     }
 }
