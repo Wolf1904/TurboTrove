@@ -2,33 +2,41 @@ package com.turbotrove;
 
 import org.junit.Test;
 
-import com.turbotrove.Main;
-
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
-import java.util.logging.Logger;
+import com.turbotrove.*;
 
 public class MainTest {
 
-    private static final Logger logger = Logger.getLogger(MainTest.class.getName());
+    @Test
+    public void testMain() {
+        // Placeholder test for the main method
+        Main.main(new String[]{});
+    }
 
     @Test
-    public void testMainMenu() {
-        // Set up a stream to capture output
-        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-        PrintStream originalOut = System.out;
-        System.setOut(new PrintStream(outContent));
+    public void testUtilityMethods() {
+        // Placeholder for testing Utility methods
+        Utility utility = new Utility();
+        // Add specific method calls and checks here
+    }
 
-        // Call the mainMenu method
-        Main.mainMenu();
+    @Test
+    public void testShowroomMethods() {
+        // Placeholder for testing Showroom methods
+        Showroom showroom = new Showroom();
+        // Add specific method calls and checks here
+    }
 
-        // Restore original System.out
-        System.setOut(originalOut);
+    @Test
+    public void testEmployeesMethods() {
+        // Placeholder for testing Employees methods
+        Employees employees = new Employees();
+        // Add specific method calls and checks here
+    }
 
-        // Capture the output for manual verification
-        logger.info(outContent.toString());
-
-        // Manual verification can be done by inspecting the log output
-        // Remove this line in production if automated verification is not required
+    @Test
+    public void testCarsMethods() {
+        // Placeholder for testing Cars methods
+        Cars cars = new Cars();
+        // Add specific method calls and checks here
     }
 }
