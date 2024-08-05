@@ -91,4 +91,3 @@ jobs:
             -Dsonar.java.libraries=lib/*.jar
             -Dsonar.junit.reportPaths=target/test-classes
             -Dsonar.coverage.jacoco.xmlReportPaths=target/jacoco.xml
-            -Dsonar.login=${{ secrets.SONAR_TOKEN }}  # Ensure to use sonar.token
