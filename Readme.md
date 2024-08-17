@@ -56,6 +56,9 @@ Note
 This is a basic implementation and may not include all the features and error handling that a real-world management system would require.
 
 
+Quality Status
+--------------
+
 [![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=Wolf1904_tubotrove)](https://sonarcloud.io/summary/new_code?id=Wolf1904_tubotrove)
 
 This badge represents the current code quality status as analyzed by SonarCloud. Click on the badge to view detailed analysis reports and metrics
