@@ -95,7 +95,7 @@ jobs:
   deploy:
       name: Deploy to Azure Web App
       runs-on: ubuntu-latest
-      needs: Build
+      needs: sonarcloud
 
       steps:
         - uses: actions/checkout@v3
@@ -109,6 +109,6 @@ jobs:
         - name: Deploy to Azure Web App
           uses: azure/webapps-deploy@v2
           with:
-            app-name: "TurboTrove"
+            app-name: "TurboTrove"  
             publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
             package: .
