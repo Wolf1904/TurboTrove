@@ -50,6 +50,22 @@ The code is organized into the following files:
 * `Employees.java`: The class that represents an employee.
 * `Cars.java`: The class that represents a car.
 
+CI/CD Pipeline
+--------------
+
+TurboTrove uses continuous integration and continuous deployment (CI/CD) pipelines for automated builds, code quality checks, and deployment to Azure Web App. The pipeline is managed using GitHub Actions, SonarCloud for code analysis, and Azure Web App for deployment.
+
+### Pipeline Setup
+1. **GitHub Actions**: Automates the build and deployment process. The pipeline triggers on code push and pull requests to run the following jobs:
+
+    * Build the Java project.
+    * Run SonarCloud code analysis.
+    * Deploy the application to Azure Web App.
+
+2. **SonarCloud**: Ensures that the code quality remains high by running static code analysis. It generates reports on code smells, bugs, and code coverage.
+
+3. **Azure Web App**: The Java application is deployed to an Azure Web App for easy accessibility and scalability.
+
 Note
 ----
 
