@@ -12,6 +12,10 @@ jobs:
     name: SonarCloud
     runs-on: ubuntu-latest
 
+    permissions:
+      checks: write
+      contents: read
+
     steps:
       - uses: actions/checkout@v3
         with:
@@ -76,7 +80,13 @@ jobs:
 
       - name: Generate JaCoCo Report
         run: |
-          java -cp lib/org.jacoco.cli-0.8.12.jar:lib/org.jacoco.core-0.8.12.jar:lib/org.jacoco.report-0.8.12.jar:lib/args4j-2.33.jar:lib/asm-9.4.jar:lib/asm-commons-9.4.jar:lib/asm-tree-9.4.jar:lib/asm-analysis-9.4.jar:lib/asm-util-9.4.jar:bin org.jacoco.cli.internal.Main report target/jacoco.exec --classfiles bin --sourcefiles src --html target/jacoco-html --xml target/jacoco.xml --csv target/jacoco.csv
+          java -cp lib/org.jacoco.cli-0.8.12.jar:lib/org.jacoco.core-0.8.12.jar:lib/org.jacoco.report-0.8.12.jar:lib/args4j-2.33.jar:lib/asm-9.4.jar:lib/asm-commons-9.4.jar:lib/asm-tree-9.4.jar:lib/asm-analysis-9.4.jar:lib/asm-util-9.4.jar:bin \
+          org.jacoco.cli.internal.Main report target/jacoco.exec \
+          --classfiles bin \
+          --sourcefiles src \
+          --html target/jacoco-html \
+          --xml target/jacoco.xml \
+          --csv target/jacoco.csv
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
@@ -93,42 +103,42 @@ jobs:
             -Dsonar.coverage.jacoco.xmlReportPaths=target/jacoco.xml
 
   deploy:
-      name: Deploy to Azure Web App
-      runs-on: ubuntu-latest
-      needs: sonarcloud
+    name: Deploy to Azure Web App
+    runs-on: ubuntu-latest
+    needs: sonarcloud
 
-      steps:
-        - uses: actions/checkout@v3
+    steps:
+      - uses: actions/checkout@v3
 
-        - name: Set up JDK 17
-          uses: actions/setup-java@v2
-          with:
-            distribution: 'temurin'
-            java-version: '17'
+      - name: Set up JDK 17
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'temurin'
+          java-version: '17'
 
-        - name: Deploy to Azure Web App
-          uses: azure/webapps-deploy@v2
-          with:
-            app-name: "TurboTrove"  
-            publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-            package: .
+      - name: Deploy to Azure Web App
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: "TurboTrove"  
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+          package: .
 
   scan-with-dastardly:
-      name: Scan with Dastardly
-      runs-on: ubuntu-latest
-      needs: deploy
+    name: Scan with Dastardly
+    runs-on: ubuntu-latest
+    needs: deploy
 
-      steps:
-        - name: Run Dastardly Action Step
-          continue-on-error: true                        # This allows subsequent steps to run even if this step fails
-          uses: PortSwigger/dastardly-github-action@main
-          with:
-            target-url: 'https://turbotrove-debjhsfxdtcpgtcq.southeastasia-01.azurewebsites.net/'
+    steps:
+      - name: Run Dastardly Action Step
+        continue-on-error: true                        # This allows subsequent steps to run even if this step fails
+        uses: PortSwigger/dastardly-github-action@main
+        with:
+          target-url: 'https://turbotrove-debjhsfxdtcpgtcq.southeastasia-01.azurewebsites.net/'
 
-        # You can replace this next step with any JUnit XML parser of your choosing
-        - name: Publish Test Report
-          if: always()                                    # Forces this step to always run
-          uses: mikepenz/action-junit-report@v3
-          with:
-            report_paths: '**/dastardly-report.xml'       # You need to update this path if you pass in a different output filename to the Dastardly action
-            require_tests: true
+      # You can replace this next step with any JUnit XML parser of your choosing
+      - name: Publish Test Report
+        if: always()                                    # Forces this step to always run
+        uses: mikepenz/action-junit-report@v3
+        with:
+          report_paths: '**/dastardly-report.xml'       # You need to update this path if you pass in a different output filename to the Dastardly action
+          require_tests: true
