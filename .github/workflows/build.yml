@@ -136,6 +136,12 @@ jobs:
         with:
           target-url: 'https://turbotrove-debjhsfxdtcpgtcq.southeastasia-01.azurewebsites.net/'
 
+      # Add a step to list the directory contents
+      - name: List report directory contents
+        run: |
+          echo "Listing contents of target directory:"
+          ls -R target/
+
       # You can replace this next step with any JUnit XML parser of your choosing
       - name: Publish Test Report
         if: always()                                    # Forces this step to always run
