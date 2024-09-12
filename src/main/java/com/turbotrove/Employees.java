@@ -27,19 +27,20 @@ public class Employees extends Showroom implements Utility {
 
     @Override
     public void set_details() {
-        Scanner sc = new Scanner(System.in);
-        UUID uuid = UUID.randomUUID();
-        empId = String.valueOf(uuid);
-        logger.log(Level.INFO, "======================= *** ENTER EMPLOYEE DETAILS *** =======================");
-        logger.log(Level.INFO, "");
-        logger.log(Level.INFO, "EMPLOYEE NAME: ");
-        empName = sc.nextLine();
-        logger.log(Level.INFO, "EMPLOYEE AGE: ");
-        empAge = sc.nextInt();
-        sc.nextLine();
-        logger.log(Level.INFO, "EMPLOYEE DEPARTMENT: ");
-        empDepartment = sc.nextLine();
-        logger.log(Level.INFO, "SHOWROOM NAME: ");
-        showroomName = sc.nextLine();
+        try (Scanner sc = new Scanner(System.in)) {
+            UUID uuid = UUID.randomUUID();
+            empId = String.valueOf(uuid);
+            logger.log(Level.INFO, "======================= *** ENTER EMPLOYEE DETAILS *** =======================");
+            logger.log(Level.INFO, "");
+            logger.log(Level.INFO, "EMPLOYEE NAME: ");
+            empName = sc.nextLine();
+            logger.log(Level.INFO, "EMPLOYEE AGE: ");
+            empAge = sc.nextInt();
+            sc.nextLine();
+            logger.log(Level.INFO, "EMPLOYEE DEPARTMENT: ");
+            empDepartment = sc.nextLine();
+            logger.log(Level.INFO, "SHOWROOM NAME: ");
+            showroomName = sc.nextLine();
+        }
     }
 }
