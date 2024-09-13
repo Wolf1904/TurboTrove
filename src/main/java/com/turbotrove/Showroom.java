@@ -26,21 +26,22 @@ public class Showroom implements Utility {
 
     @Override
     public void set_details() {
-        Scanner sc = new Scanner(System.in);
-        logger.log(Level.INFO, "======================= *** ENTER SHOWROOM DETAILS *** =======================");
-        logger.log(Level.INFO, "");
-        logger.log(Level.INFO, "SHOWROOM NAME: ");
-        setShowroomName(sc.nextLine());
-        logger.log(Level.INFO, "SHOWROOM ADDRESS: ");
-        setShowroomAddress(sc.nextLine());
-        logger.log(Level.INFO, "MANAGER NAME: ");
-        setManagerName(sc.nextLine());
-        logger.log(Level.INFO, "TOTAL NO OF EMPLOYEES: ");
-        setTotalEmployees(sc.nextInt());
-        logger.log(Level.INFO, "TOTAL CARS IN STOCK: ");
-        setTotalCarsinStock(sc.nextInt());
-        logger.log(Level.INFO, "MANAGER PHONE: ");
-        setManagerPhone(sc.nextInt());
+        try (Scanner sc = new Scanner(System.in)) {
+            logger.log(Level.INFO, "======================= *** ENTER SHOWROOM DETAILS *** =======================");
+            logger.log(Level.INFO, "");
+            logger.log(Level.INFO, "SHOWROOM NAME: ");
+            setShowroomName(sc.nextLine());
+            logger.log(Level.INFO, "SHOWROOM ADDRESS: ");
+            setShowroomAddress(sc.nextLine());
+            logger.log(Level.INFO, "MANAGER NAME: ");
+            setManagerName(sc.nextLine());
+            logger.log(Level.INFO, "TOTAL NO OF EMPLOYEES: ");
+            setTotalEmployees(sc.nextInt());
+            logger.log(Level.INFO, "TOTAL CARS IN STOCK: ");
+            setTotalCarsinStock(sc.nextInt());
+            logger.log(Level.INFO, "MANAGER PHONE: ");
+            setManagerPhone(sc.nextInt());
+        }
     }
 
     public static Logger getLogger() {

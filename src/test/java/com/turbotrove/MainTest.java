@@ -43,7 +43,7 @@ public class MainTest {
         assertEquals("John Doe", showroom.getManagerName());
         assertEquals(10, showroom.getTotalEmployees());
         assertEquals(50, showroom.getTotalCarsinStock());
-        assertEquals("123456789", showroom.getManagerPhone());
+        assertEquals(123456789, showroom.getManagerPhone());
     }
 
     @Test
