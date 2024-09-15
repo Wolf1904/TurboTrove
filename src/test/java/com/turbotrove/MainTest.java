@@ -83,11 +83,14 @@ public class MainTest {
     public void testMainMenu() {
         // Simulating menu interaction with mock input
         String input = "1\nShowroom A\n123 Main St\nJohn Doe\n10\n50\n123456789\n" + // Add showroom details
-                       "2\nJohn Doe\n30\nSales\nShowroom A\n" + // Add employee details
-                       "3\nCar1\nRed\nPetrol\n20000\nSUV\nAutomatic\n2021\n" + // Add car details
-                       "9\n"; // Go back to menu
+                    "2\nJohn Doe\n30\nSales\nShowroom A\n" + // Add employee details
+                    "3\nCar1\nRed\nPetrol\n20000\nSUV\nAutomatic\n2021\n" + // Add car details
+                    "9\n" + // Go back to menu
+                    "0\n"; // Exit the application (assuming 0 is for exit)
+        
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
+
         app.run(); // Call the run method to simulate the app
     }
 }

@@ -37,8 +37,10 @@ public class Showroom implements Utility {
             setManagerName(sc.nextLine());
             logger.log(Level.INFO, "TOTAL NO OF EMPLOYEES: ");
             setTotalEmployees(sc.nextInt());
+            sc.nextLine();  // Consume newline after nextInt()
             logger.log(Level.INFO, "TOTAL CARS IN STOCK: ");
             setTotalCarsinStock(sc.nextInt());
+            sc.nextLine();  // Consume newline after nextInt()
             logger.log(Level.INFO, "MANAGER PHONE: ");
             setManagerPhone(sc.nextInt());
         }
