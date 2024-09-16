@@ -123,6 +123,9 @@ jobs:
           version: 'latest'
           service_account_key: ${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}
 
+      - name: Set Google Cloud Project
+        run: gcloud config set project ${{ secrets.PROJECT_ID }}
+
       - name: Deploy to Google Cloud Build
         run: |
           gcloud builds submit --config .github/workflows/cloudbuild.yml .
