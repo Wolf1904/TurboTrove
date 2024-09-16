@@ -1,5 +1,28 @@
 steps:
-- name: 'gcr.io/cloud-builders/mvn'
-  args: ['clean', 'package']
-- name: 'gcr.io/google-appengine/java'
-  args: ['deploy', 'target/turbotrove.jar']
+  # Step 1: Compile the Java files
+  - name: 'openjdk:17' # Using OpenJDK 17 image for compilation
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        mkdir -p bin
+        javac -d bin $(find src -name "*.java")
+    
+  # Step 2: Create JAR from the compiled classes
+  - name: 'openjdk:17'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        mkdir -p target
+        jar cvf target/turbotrove.jar -C bin .
+
+  # Step 3: Deploy the generated JAR to Google App Engine
+  - name: 'gcr.io/google-appengine/java'
+    args: ['deploy', 'target/turbotrove.jar']
+
+# Optionally specify artifacts if you need to store them:
+# artifacts:
+#   objects:
+#     location: 'gs://your-bucket-name/output/'
+#     paths: ['target/turbotrove.jar']
