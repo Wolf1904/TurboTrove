@@ -125,7 +125,7 @@ jobs:
 
       - name: Deploy to Google Cloud Build
         run: |
-          gcloud builds submit --config cloudbuild.yaml .
+          gcloud builds submit --config .github/workflows/cloudbuild.yml .
 
   scan-with-dastardly:
     name: Scan with Dastardly
