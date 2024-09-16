@@ -121,18 +121,20 @@ jobs:
         uses: google-github-actions/setup-gcloud@v2
         with:
           version: 'latest'
-          service_account_key: ${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}
+          GCP_SERVICE_ACCOUNT_KEY: ${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}
 
       - name: Set Google Cloud Project
         run: gcloud config set project ${{ secrets.PROJECT_ID }}
 
       - name: Authenticate to Google Cloud
         env:
+          GCP_SERVICE_ACCOUNT_KEY: ${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}  # Ensure this is your JSON key
           GCLOUD_PROJECT: ${{ secrets.PROJECT_ID }}
-          GCLOUD_SERVICE_KEY: ${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}
         run: |
-          echo $GCP_SERVICE_ACCOUNT_KEY | gcloud auth activate-service-account --key-file=-
-          gcloud config set project $GCLOUD_PROJECT
+          echo "$GCP_SERVICE_ACCOUNT_KEY" > "${{ runner.temp }}/gcloud_key.json"
+          gcloud auth activate-service-account --key-file="${{ runner.temp }}/gcloud_key.json"
+          gcloud config set project ${{ secrets.PROJECT_ID }}  # Ensure you have this secret for your project ID
+
 
       - name: Deploy to Google Cloud Build
         run: |
