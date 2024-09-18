@@ -15,7 +15,7 @@ steps:
       - '-c'
       - |
         mkdir -p target
-        jar cvf target/turbotrove.jar -C bin .
+        jar cvf turbotrove.jar -C bin .
 
   # Step 3: Deploy the generated JAR to Google App Engine
   - name: 'gcr.io/google-appengine/java'
